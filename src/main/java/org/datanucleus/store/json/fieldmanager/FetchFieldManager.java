@@ -696,7 +696,7 @@ public class FetchFieldManager extends AbstractFetchFieldManager
                 return null;
             }
 
-            String idStr = (String)jsonobj.get(colName);
+            String idStr = jsonobj.get(colName).toString();
             Object obj = null;
             AbstractClassMetaData memberCmd = ec.getMetaDataManager().getMetaDataForClass(mmd.getType(), clr);
             try
