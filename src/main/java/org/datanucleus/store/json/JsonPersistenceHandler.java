@@ -687,6 +687,13 @@ public class JsonPersistenceHandler extends AbstractPersistenceHandler
             URLConnection conn = (URLConnection) mconn.getConnection();
             ClassLoaderResolver clr = ec.getClassLoaderResolver();
             final AbstractClassMetaData cmd = ec.getMetaDataManager().getMetaDataForClass(candidateClass, clr);
+            
+            if (!storeMgr.managesClass(cmd.getFullClassName()))
+            {
+                // Make sure schema exists, using this connection
+                storeMgr.manageClasses(ec.getClassLoaderResolver(), new String[]{cmd.getFullClassName()});
+            }
+            
             final Table table = storeMgr.getStoreDataForClass(cmd.getFullClassName()).getTable();
 
             JSONArray jsonarray;
