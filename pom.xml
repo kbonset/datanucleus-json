@@ -61,4 +61,22 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <site>
+            <id>hobolink.onsetcomp.com</id>
+            <url>scp://hobolink.onsetcomp.com/project_sites/datanucleus-json/</url>
+        </site>
+        <!-- use the following if you're not using a snapshot version. -->
+        <repository>
+            <id>nexus</id>
+            <name>Onset Nexus Release Repository</name>
+            <url>http://hobolink.onsetcomp.com:8081/nexus/content/repositories/releases</url>
+        </repository>
+        <!-- use the following if you ARE using a snapshot version. -->
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Onset Nexus Snapshot Repository</name>
+            <url>http://hobolink.onsetcomp.com:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
